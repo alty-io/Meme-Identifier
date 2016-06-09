@@ -25,9 +25,6 @@ r = praw.Reddit(user_agent=user_agent)
 # sets the length of the list of comments to return to the main program
 comListLength = 300
 
-# dict of unique WordClass words in comment list. Values are word counts.
-wordDict = dict()
-
 # set of words flagged for potential comparison
 flaggedWords = list()
 
@@ -82,6 +79,9 @@ def get_comments():
 
 # gets comments from reddit and returns a dict of all words used with values of how many times used
 def get_comment_stats():
+    # dict of unique WordClass words in comment list. Values are word counts.
+    wordDict = dict()
+
     # fill a list with all comments
     comlist = get_comments()
 
@@ -117,7 +117,7 @@ def word_count_compare(currcount, initcount):
     elif initcount > 50:
         if (currcount / initcount) > 1.13:
             return True
-    elif (currcount - initcount) > 0:
+    elif (currcount - initcount) > 3:
         return True
 
 
