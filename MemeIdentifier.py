@@ -1,3 +1,16 @@
+"""
+MemeIdentifier by Alex Hildreth and Tyler Sullivan
+
+this script takes a live-list of comments from reddit and parses
+them into dictionaries of WordClass that contains the word and how
+many times it was used. It them compares the dicts to identify any words
+that have gone up in usage and may constitute a trend or meme. These
+words are flagged for search (so only comments containing these words need
+to be iterated over multiple times), and any patterns, trends, or memes
+can be identified.
+"""
+
+
 import praw
 from praw.helpers import comment_stream
 import nltk
